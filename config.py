@@ -1,3 +1,4 @@
 
-# токен невалидный
-token = '110831855:AAE_GbIeVAUwk11O12vq4UeMnl20iADUtM'
+token = 'TOKEN'  # Токен бота
+database_name = 'BD.db'  # Файл с базой данных, если потребуется
+shelve_name = 'shelve.db'  # Файл с хранилищем, если потребуется
