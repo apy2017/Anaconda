@@ -7,10 +7,10 @@ class Bot(TelegramObject):
     """
     Атрибуты:
         id (int): идентификатор бота.
-        username (str): никнейм бота.
-        name (str):  @username бота.
+        username (str): TechnoparkMail_bot
+        name (str):  @TechnoparkMail_bot
     Аргументы:
-        token (str): Bot's unique authentication.
+        token (str): 342067339:AAFsQBcm8NJjUx8RtJBIlusAyREpSImf0PU
     """
 
 
