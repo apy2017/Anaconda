@@ -27,3 +27,5 @@ class Update:
     def __init__(self, answer_dict):
         self.update_id = answer_dict['update_id']
         self.message = Message(answer_dict['message']) if 'message' in answer_dict else None
+
+

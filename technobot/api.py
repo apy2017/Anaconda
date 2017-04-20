@@ -40,4 +40,7 @@ def send_message(token, chat_id, text, *args):
 
 
 def get_updates(token, offset=None, limit=None, timeout=None, allowed_updates=None):
-    return _make_request(token, 'getUpdates')
+    parsed_params = {}
+    if offset is not None:
+        parsed_params['offset'] = offset
+    return _make_request(token, 'getUpdates', parsed_params)

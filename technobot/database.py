@@ -108,6 +108,14 @@ def db_get_poll(poll_id):
 
 
 @db_session
+def db_get_questions(poll_id):
+    questions = Question.select().where(Question.poll_id == poll_id)
+    if questions.exists():
+        return questions
+    return False
+
+
+@db_session
 def db_add_question(poll, caption, data_type):
     question = Question(poll_id = poll, caption=caption, data_type=data_type)
     question.save()
@@ -115,9 +123,10 @@ def db_add_question(poll, caption, data_type):
 
 
 @db_session
-def db_get_poll_questions(poll):
-    questions = Question.select().where(Question.poll_id == poll)
-    return questions
+def db_add_answer(question, answer):
+    answer = Answer(question=question, caption=answer)
+    answer.save()
+    return answer
 
 def setup():
     if not(os.path.isfile(DB_NAME)):
