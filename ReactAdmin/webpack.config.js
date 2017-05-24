@@ -1,3 +1,4 @@
+
 var webpack = require('webpack');
 var path = require('path');
 
@@ -26,7 +27,19 @@ var config = {
                    presets: ['es2015', 'react']
                }
       },
-      { test: /\.css/, loader: "style-loader!css-loader" }
+      { test: /\.css/, loader: "style-loader!css-loader" },
+	  {test: /\.scss$/, loaders: [ 'style', 'css', 'sass' ]},
+      {
+        test: /\.(png|jpg|)$/,
+        loader: 'url-loader?limit=200000'
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: '../techbot_web/static/fonts/[name].[ext]',
+        },
+      }
     ]
   }
 };

@@ -1,24 +1,41 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import SideBar from './SideBar'
+import {Container, Row, Col, Button} from 'reactstrap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Navigation from './NavBar'
+import PollList from '../../components/PollList'
+import 'bootstrap/dist/css/bootstrap.css'
 
 import styles from './layout.css';
 
 export default class BaseLayout extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            child: []
+        };
     }
+
+    columnOpen(children) {
+        this.setState({
+                child: children
+            }
+        )
+    }
+
+    resize() {
+        this.forceUpdate();
+    }
+
     render() {
+        var scope = this;
         return (
             <div>
                 <Navigation/>
-                <Container fluid>
+                <Container className="item-container rounded-bottom">
                     <Row>
-                        <Col sm="3" md="2" className="hidden-xs-down bg-faded sidebar"> <SideBar bg-inverse/> </Col>
-                        <Col sm={{ size: 9, offset: 3}} md={{ size: 10, offset: 2}}>
-                            <h1>Dashboard</h1>
-                            <hr>
+                        <Col>
+                            {this.props.children}
+
                         </Col>
                     </Row>
                 </Container>

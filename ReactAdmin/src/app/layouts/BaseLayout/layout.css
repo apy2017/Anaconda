@@ -9,3 +9,62 @@
     overflow-y: auto;
     border-right: 1px solid #eee;
 }
+
+.icon {
+    width: 18px;
+    margin: 5px;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.example-enter {
+    opacity: 1;
+}
+
+.example-enter.example-enter-active {
+    opacity: 1;
+    transition: all .3s ease-in;
+}
+
+.example-leave {
+    opacity: 1;
+}
+
+.example-leave.example-leave-active {
+    opacity: 1;
+    transition: all .3s ease-in;
+}
+
+.item-container {
+    padding: 20px 10px;
+    background-color: #f7f7f7;
+}
+
+nav {
+    z-index: 100;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+body, html {
+    height: 100%;
+    background: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33)) no-repeat;}
+
+.full-width {
+    width: 100%;
+}
+
+div.text-center {
+    margin: 0 auto;
+}
+
+.right-border {
+    border-right: solid 1px;
+}
+
+.header-margin {
+    margin-left: 0px;
+    margin-bottom: 15px;
+}
+
+.badge {
+    margin-right: 5px;
+}

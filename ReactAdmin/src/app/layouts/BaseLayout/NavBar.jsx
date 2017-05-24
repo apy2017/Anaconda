@@ -1,5 +1,6 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default class Navigation extends React.Component {
     constructor(props) {
@@ -18,16 +19,22 @@ export default class Navigation extends React.Component {
     render() {
         return (
             <div>
-                <Navbar color="faded" toggleable>
+                <Navbar color="faded" light toggleable>
                     <NavbarToggler right onClick={this.toggle} />
-                    <NavbarBrand href="/">reactstrap</NavbarBrand>
+                    <Link to="/main/"><NavbarBrand>TechBot | MailRu</NavbarBrand></Link>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink href="/components/">Components</NavLink>
+                                <Link to="/main/"><NavLink>Опросы</NavLink></Link>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+                                <Link to="/main/answers/"><NavLink>Результаты опросов</NavLink></Link>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="https://github.com/apy2017/Anaconda">Github</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink href="/logout/">Выход</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
