@@ -1,10 +1,5 @@
 from django.contrib import admin
-from .models import User, Poll, Question, Answer
-
-
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ['name', 'telegram_id']
+from .models import Poll, Question, Answer, AnswerContainer
 
 
 @admin.register(Poll)
@@ -17,6 +12,11 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ['caption', 'from_poll']
 
 
+@admin.register(AnswerContainer)
+class AnswerContainerAdmin(admin.ModelAdmin):
+    list_display = ['on_poll', 'telegram_username']
+
+
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
-    list_display = ['caption', 'on_question']
+    list_display = ['caption', 'from_container', 'on_question']
