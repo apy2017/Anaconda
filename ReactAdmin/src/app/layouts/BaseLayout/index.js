@@ -35,6 +35,7 @@ export default class BaseLayout extends React.Component {
                     <Row>
                         <Col>
                             {this.props.children}
+
                         </Col>
                     </Row>
                 </Container>

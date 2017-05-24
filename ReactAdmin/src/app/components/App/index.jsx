@@ -19,20 +19,9 @@ class App extends Component {
                      <Route exact path="/main/answers/" component={AnswerContainerList}/>
                 </BaseLayout>
             </Router>
-
     );
     }
 }
 
 
 export default App
-
-/*
- <BrowserRouter>
- <BaseLayout>
- <Route path="/" component={Button} />
- <Route exact path="/main/" component={PollList} />
- <Route path="/questions" component={QuestionList}/>
- </BaseLayout>
- </BrowserRouter>
- */

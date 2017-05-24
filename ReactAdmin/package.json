@@ -28,6 +28,15 @@
     "style-loader": "^0.17.0",
     "url": "^0.11.0",
     "url-loader": "^0.5.8",
+    "prop-types": "^15.5.9",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
+    "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "reactstrap": "^4.5.0",
+    "style-loader": "^0.17.0",
     "webpack": "^2.5.1"
   }
 }

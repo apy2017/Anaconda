@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
 export default class SideBar extends React.Component {
