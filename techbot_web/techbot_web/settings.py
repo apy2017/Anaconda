@@ -26,7 +26,7 @@ SECRET_KEY = 'y6%+3twx#b*=57k8j1dex4hy3lcm5j=pm-0pa#p=p4$!5(f(f3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['178.62.99.200', '127.0.0.1']
+ALLOWED_HOSTS = ['178.62.99.200', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -79,9 +79,14 @@ WSGI_APPLICATION = 'techbot_web.wsgi.application'
 # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'techbot',
+        'USER': 'python',
+        'PASSWORD': '#########',
+        'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
@@ -108,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -122,9 +127,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-#STATIC_ROOT = '/home/techbot/techbot_web/static/'
+STATIC_ROOT = '/home/techbot/techbot_web/static/'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ( os.path.join('static'), )
+#STATICFILES_DIRS = ( os.path.join('static'), )
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
