@@ -4,7 +4,9 @@ from threading import Timer
 from functools import wraps
 import re
 import copy
+import logging
 
+logging.basicConfig(level = logging.DEBUG)
 
 class TechnoBot:
     def __init__(self, token, exit_button=None, ignore_old=False, timeout=3):
@@ -19,6 +21,7 @@ class TechnoBot:
         self._pre_handlers = []
         self._handlers = []
         self._thread = Timer(self._timeout, self._process_updates)
+        self.logger = logging.getLogger("ex")
 
     def _receive_updates(self):
         self._updates = {}
@@ -51,6 +54,7 @@ class TechnoBot:
 
     def process_webhook_update(self, update):
         new_update = utils.Update(update)
+        self.logger.debug('Updates code {code} recieved'.format(code=new_update.update_id))
         message = new_update.message
         if message is None: return
         self._process_conversation(message)
@@ -143,9 +147,11 @@ class TechnoBot:
             api.send_message(self.token, chat_id=chat_id, text=text)
 
     def set_webhook(self, url=None, certificate=None):
+        self.logger.debug('Webhook set in url {url}'.format(url=url))
         return api.set_webhook(self.token, url, certificate)
 
     def delete_webhook(self):
+        self.logger.debug('Webhook deleted')
         return api.delete_webhook(self.token)
 
     def polling(self):
@@ -165,6 +171,7 @@ class Conversation:
             return False
 
     def __call__(self, *args, **kwargs):
+        logging.debug('Started conversation')
         self._coroutine = self._coroutine(*args, **kwargs)
         next(self._coroutine)
         return self

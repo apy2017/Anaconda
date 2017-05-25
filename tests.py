@@ -4,6 +4,7 @@ import config
 import unittest
 import json
 from unittest.mock import patch, Mock
+import requests
 
 
 class FakeResponse:
@@ -22,9 +23,11 @@ class FakeResponse:
 class TechBotTest(unittest.TestCase):
     def setUp(self):
         self.bot = TechnoBot(config.token)
+        self.host = 'localhost'
+        self.url = 'http://{0}'.format(self.host)
         pass
 
-    @patch('requests.get', Mock(return_value=FakeResponse(153)))
+    @patch('requests.get', Mock(return_value=FakeResponse(153,'{"description" : "test"}')))
     def testApi(self):
         self.assertRaises(api.TelegramApiException, api._make_request, config.token, 'getMe')
 
@@ -34,6 +37,19 @@ class TechBotTest(unittest.TestCase):
                                                                '"result" : {}}')))
     def testOk(self):
         self.assertRaises(api.TelegramApiException, api._make_request, config.token, 'getMe')
+
+    def get_url(self, tail):
+        return '{base}/api/v0/{tail}'.format(base=self.url, tail=tail)
+
+    def testPolls(self):
+        requests_url = self.get_url('polls/12345678/')
+        response = requests.get(requests_url)
+        self.assertEqual(response.status_code, 200)
+
+    def testCode(self):
+        requests_url = self.get_url('polls/1278/')
+        response = requests.get(requests_url)
+        self.assertEqual(response.status_code, 404)
 
 
 if __name__ == '__main__':

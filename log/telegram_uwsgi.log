@@ -1,0 +1,31 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Mon May 22 18:08:27 2017] ***
+compiled with version: 5.4.0 20160609 on 22 May 2017 16:48:44
+os: Linux-4.4.0-77-generic #98-Ubuntu SMP Wed Apr 26 08:34:02 UTC 2017
+nodename: techbot
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/techbot
+detected binary path: /home/techbot/env/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/techbot
+your processes number limit is 1898
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/techbot/_conf/telegram.sock fd 3
+Python version: 3.5.2 (default, Nov 17 2016, 17:05:23)  [GCC 5.4.0 20160609]
+Set PythonHome to /home/techbot/env
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x14079c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145520 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x14079c0 pid: 13578 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 13578)
+spawned uWSGI worker 1 (pid: 13580, cores: 1)
+Mon May 22 18:15:28 2017 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+o
